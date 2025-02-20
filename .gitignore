@@ -1,11 +1,11 @@
-nbproject/private/
+SEProject/nbproject/private/
 
-nbproject/build-impl.xml
-nbproject/genfiles.properties
-nbproject/project.properties
+SEProject/nbproject/build-impl.xml
+SEProject/nbproject/genfiles.properties
+SEProject/nbproject/project.properties
 
-build/
-dist/
+SEProject/build/
+SEProject/dist/
 
 *.iml
 *.swp
