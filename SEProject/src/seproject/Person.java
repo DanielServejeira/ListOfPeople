@@ -4,11 +4,12 @@
  */
 package seproject;
 
+import java.io.Serializable;
 /**
  *
  * @author Daniel Servejeira
  */
-public class Person {
+public class Person implements Serializable{
     private String name;
     private String birthday;
     private Boolean gender;
