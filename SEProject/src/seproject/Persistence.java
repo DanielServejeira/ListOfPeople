@@ -4,10 +4,15 @@
  */
 package seproject;
 
+import java.io.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel Servejeira
  */
 public class Persistence {
+    private static final String FILE_NAME = "people.dat";
+    
     
 }

@@ -1,0 +1,16 @@
+nbproject/private/
+
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+nbproject/project.properties
+
+build/
+dist/
+
+*.iml
+*.swp
+*.swo
+*.bak
+
+.DS_Store
+Thumbs.db
