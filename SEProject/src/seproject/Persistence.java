@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Persistence {
     private static final String FILE_NAME = "people.dat";
 
-    public static void savePeople(ArrayList<Person> people) {
+    public static void savePeople(Serializable object) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(people);
+            oos.writeObject(object);
             System.out.println("People list saved.");
         } catch (IOException e) {
             System.err.println("Error saving people: " + e.getMessage());
