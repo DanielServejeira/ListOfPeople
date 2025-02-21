@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package seproject;
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -16,51 +15,51 @@ public class SEProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList <Person> people = Persistence.loadPeople();
-        
-        byte menuOption = -1, totalMenuOptions = 4;
-        char confirmation = '0';
-        
-        while(menuOption != EXITOPTION || confirmation == 'N') {
-            menuOption = -1;
-            confirmation = '0';
-            
-            while(menuOption < EXITOPTION || menuOption > totalMenuOptions) {
-                System.out.println("\n-=-=-=-=-=-MENU-=-=-=-=-=-");
-                System.out.println("[1] <- Add a person's data to the list");
-                System.out.println("[2] <- Remove a person's data from the list");
-                System.out.println("[3] <- Modify a person's data in the list");
-                System.out.println("[4] <- View a person's data in the list");
-                System.out.println("[0] <- Exit");
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-                System.out.print("Choose an option: ");
-                menuOption = scanner.nextByte();
-                
-                System.out.println("");
-            }
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            ArrayList <Person> people = Persistence.loadPeople();
 
-            
-            while(confirmation != 'Y' && confirmation != 'N') {
-                System.out.println("Are you sure? (Y/N) ");
-                confirmation = scanner.next().toUpperCase().charAt(0);
-                scanner.nextLine();
-            }
-            
-            if(confirmation == 'Y') {
-                System.out.println("");
-                
-                switch (menuOption) {
-                    case 0 -> System.out.println("Software by Daniel Servejeira\n");
-                    case 1 -> addPerson(scanner, people);
-                    case 2 -> removePerson(scanner, people);
-                    case 3 -> modifyPerson(scanner, people);
-                    case 4 -> viewPeople(scanner, people);
+            byte menuOption = -1, totalMenuOptions = 4;
+            char confirmation = '0';
+
+            while(menuOption != EXITOPTION || confirmation == 'N') {
+                menuOption = -1;
+                confirmation = '0';
+
+                while(menuOption < EXITOPTION || menuOption > totalMenuOptions) {
+                    System.out.println("\n-=-=-=-=-=-MENU-=-=-=-=-=-");
+                    System.out.println("[1] <- Add a person's data to the list");
+                    System.out.println("[2] <- Remove a person's data from the list");
+                    System.out.println("[3] <- Modify a person's data in the list");
+                    System.out.println("[4] <- View a person's data in the list");
+                    System.out.println("[0] <- Exit");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+                    System.out.print("Choose an option: ");
+                    menuOption = scanner.nextByte();
+
+                    System.out.println("");
+                }
+
+
+                while(confirmation != 'Y' && confirmation != 'N') {
+                    System.out.println("Are you sure? (Y/N) ");
+                    confirmation = scanner.next().toUpperCase().charAt(0);
+                    scanner.nextLine();
+                }
+
+                if(confirmation == 'Y') {
+                    System.out.println("");
+
+                    switch (menuOption) {
+                        case 0 -> System.out.println("Software by Daniel Servejeira\n");
+                        case 1 -> addPerson(scanner, people);
+                        case 2 -> removePerson(scanner, people);
+                        case 3 -> modifyPerson(scanner, people);
+                        case 4 -> viewPeople(scanner, people);
+                    }
                 }
             }
         }
-        scanner.close();
     }
     
     private static void addPerson(Scanner scanner, ArrayList<Person> people) {
